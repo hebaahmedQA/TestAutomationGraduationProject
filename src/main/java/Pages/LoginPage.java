@@ -26,7 +26,7 @@ public class LoginPage {
         this.emailGenerator = new EmailGenerator();
     }
 
-    // Actions
+    // Actions Methods
     public LoginPage signUp() {
         String dynamicEmail = emailGenerator.generateDynamicEmail(); // Generate email
         driver.findElement(nameField).sendKeys("Heba");
