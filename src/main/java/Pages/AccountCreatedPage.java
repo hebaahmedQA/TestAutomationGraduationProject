@@ -19,7 +19,7 @@ public class AccountCreatedPage {
     private By accountCreatedText = By.xpath("//h2[contains(@class, 'title text-center')]");
     private By continueButton = By.xpath("//a[@data-qa ='continue-button']");
 
-    //Actions
+    //ACtions
 
     public AccountCreatedPage verifyAccountCreated ()
     {
