@@ -1,4 +1,3 @@
-
 name: Maven CI/CD
 
 on:
@@ -34,6 +33,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven
 
-      # 4. Build and test the project
+      # 4. Build and Test the project
       - name: Build and Test with Maven
         run: mvn clean install
+
+      # 5. Generate Allure Report
+      - name: Generate Allure Report
+        run: mvn allure:report
+
+      # 6. Upload Allure Report
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin
