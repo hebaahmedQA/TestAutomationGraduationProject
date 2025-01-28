@@ -19,7 +19,8 @@ public class AccountCreatedPage {
     private By accountCreatedText = By.xpath("//h2[contains(@class, 'title text-center')]");
     private By continueButton = By.xpath("//a[@data-qa ='continue-button']");
 
-    //actions
+    //Actions
+
     public AccountCreatedPage verifyAccountCreated ()
     {
         Assert.assertEquals("ACCOUNT CREATED!", driver.findElement(accountCreatedText).getText());
