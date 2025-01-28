@@ -16,7 +16,7 @@ public class DeleteAccountPage {
     private By accountDeletedButton  = By.xpath("//a[@ href = '/delete_account']");
     private By continueButton = By.xpath("//a[@data-qa ='continue-button']");
     private By accountDeletedText = By.xpath("//h2 [@data-qa = 'account-deleted']");
-    //private By accountDeletedText = By.xpath("//h2 [@data-qa = 'account-deleted']");
+
 
 
     public DeleteAccountPage clickDeleteAccountButton ()

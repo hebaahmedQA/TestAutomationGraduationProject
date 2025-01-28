@@ -11,39 +11,44 @@ import static io.restassured.RestAssured.given;
 
 public class UserRegister {
 
-    @Test
-    public void userRegister() {
-        // Get Base URL from config file
-        RestAssured.baseURI = ConfigReader.getProperty("baseURL");
+   @Test(dataProvider = "userRegisterApi", dataProviderClass = Utils.JsonDataProvider.class)
+   public void userRegister(String title, String name, String email, String password,
+                            String birth_date, String birth_month, String birth_year,
+                            String firstname, String lastname, String company,
+                            String address1, String address2, String country,
+                            String state, String city, String zipcode, String mobile_number) {
 
-        // user data
-        Map<String, String> userData = new HashMap<>();
-        userData.put("name", "heba");
-        userData.put("email", "heba1@gmail.com");
-        userData.put("password", "password123");
-        userData.put("title", "Mr");
-        userData.put("birth_date", "1");
-        userData.put("birth_month", "January");
-        userData.put("birth_year", "1995");
-        userData.put("firstname", "User");
-        userData.put("lastname", "One");
-        userData.put("company", "Company A");
-        userData.put("address1", "Address 1");
-        userData.put("address2", "");
-        userData.put("country", "India");
-        userData.put("zipcode", "11111");
-        userData.put("state", "Cairo");
-        userData.put("city", "Heliopolis");
-        userData.put("mobile_number", "01111111111");
+      // Get Base URL from config file
+      RestAssured.baseURI = ConfigReader.getProperty("baseURL");
 
-        // send post request
-        given()
-                .contentType("application/json")
-                .body(userData)
-                .when()
-                .post("/api/createAccount")
-                .then()
-                .log().all()
-                .statusCode(201); // Verify status code 201
-    }
+      // Create request body using HashMap
+      Map<String, String> requestBody = new HashMap<>();
+      requestBody.put("title", title);
+      requestBody.put("name", name);
+      requestBody.put("email", email);
+      requestBody.put("password", password);
+      requestBody.put("birth_date", birth_date);
+      requestBody.put("birth_month", birth_month);
+      requestBody.put("birth_year", birth_year);
+      requestBody.put("firstname", firstname);
+      requestBody.put("lastname", lastname);
+      requestBody.put("company", company);
+      requestBody.put("address1", address1);
+      requestBody.put("address2", address2);
+      requestBody.put("country", country);
+      requestBody.put("state", state);
+      requestBody.put("city", city);
+      requestBody.put("zipcode", zipcode);
+      requestBody.put("mobile_number", mobile_number);
+
+      // Send POST request
+      given()
+              .contentType("application/json")
+              .body(requestBody)
+              .when()
+              .post("/api/createAccount")
+              .then()
+              .log().all()
+              .statusCode(201); // Verify status code 201
+   }
 }

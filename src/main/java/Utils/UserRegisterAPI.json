@@ -1,8 +1,8 @@
 [
   {
-
-    "name": "heba",
     "title": "Mr",
+    "name": "heba",
+    "email": "heba1@gmail.com",
     "password": "123456",
     "birth_date": "1",
     "birth_month": "January",
@@ -19,5 +19,3 @@
     "mobile_number": "01111111111"
   }
 ]
-
-

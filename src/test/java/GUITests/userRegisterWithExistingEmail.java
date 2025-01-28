@@ -3,10 +3,12 @@ package GUITests;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.ConfigReader;
+import Utils.JsonDataProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /*1. Launch browser
@@ -32,9 +34,8 @@ public class userRegisterWithExistingEmail {
     }
 
 
-
-    @Test
-     public void userRegisterWithExistingEmail ()
+ @Test(dataProvider = "SignUpData", dataProviderClass = Utils.JsonDataProvider.class)
+    public void userRegisterWithExistingEmail (String name , String email)
      {
          homePage = new HomePage(driver);
          loginPage = new LoginPage(driver);
@@ -42,7 +43,7 @@ public class userRegisterWithExistingEmail {
                  .clicksignupButton();
 
          loginPage.verifyNewUserText()
-                 .signUpWithExistingEmail("Heba", "test.heba1986@gmail.com")
+                 .signUpWithExistingEmail(name, email)
                  .verifyAlreadyEmailErrorMessage();
 
 

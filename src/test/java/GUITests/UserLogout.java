@@ -32,8 +32,8 @@ public class UserLogout {
     }
 
 
-    @Test
-    public void userLogOut ()
+    @Test()
+    public void userLogOut ( )
     {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
