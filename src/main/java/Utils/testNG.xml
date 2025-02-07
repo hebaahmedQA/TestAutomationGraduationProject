@@ -7,6 +7,9 @@
                 <methods>
                     <include name="userLogOut" depends-on-methods="testAutomationRegisterUser"/>
                 </methods>
+                <methods>
+                    <include name = "UserRegisterAPI"  />
+                </methods>
             </class>
         </classes>
     </test>

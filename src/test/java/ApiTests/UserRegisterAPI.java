@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class UserRegister {
+public class UserRegisterAPI {
 
    @Test(dataProvider = "userRegisterApi", dataProviderClass = Utils.JsonDataProvider.class)
    public void userRegister(String title, String name, String email, String password,
