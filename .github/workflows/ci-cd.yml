@@ -47,5 +47,4 @@ jobs:
         with:
           name: allure-report
           path: target/site/allure-maven-plugin
-  git add .
-  git commit -m "Save local changes before pull"
+

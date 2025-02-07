@@ -16,7 +16,7 @@ import java.util.Map;
 public class JsonDataProvider {
 
     private Object[][] getDataFromFile(String filePath) throws IOException {
-        //  use objectmapper to read json data
+        //  use objectmapper to read jsondata
         ObjectMapper objectMapper = new ObjectMapper();
 
         // Read the JSON file into a List of Maps
