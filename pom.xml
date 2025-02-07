@@ -85,6 +85,13 @@
             <artifactId>selenium-devtools-v132</artifactId>
             <version>4.21.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.20.0</version>
+        </dependency>
+
+
 
 
 
@@ -92,6 +99,12 @@
 
 
     </dependencies>
+    <repositories>
+        <repository>
+            <id>selenium-repo</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
