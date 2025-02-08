@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Test Suite" >
+<suite name="Test Suite" parallel="tests" thread-count="2">
+
     <test name="API Tests">
         <classes>
             <class name="ApiTests.UserInvalidLogin"/>

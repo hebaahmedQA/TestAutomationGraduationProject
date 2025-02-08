@@ -44,7 +44,7 @@ public class UserLogout {
                 .clicksignupButton(); // Click the 'Signup / Login' button
 
         loginPage.loginTextVisibility() //Verify 'Login to your account' is visible
-                .loginWithValidData(); //Login in with valid data
+                .loginWithValidData("test.heba1986@gmail.com", "123456"); //Login in with valid data
         homePage.verifyLoggedAsText("Heba")  // Verify that 'Logged in as username' is visible
                 .logOut();
         loginPage.verifyUserNavigateToLoginPage(); //Verify that user is navigated to login page*/

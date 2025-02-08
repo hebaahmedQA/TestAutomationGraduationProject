@@ -50,7 +50,6 @@ jobs:
         with:
           node-version: '20'
 
-
       - name: Install Allure
         run: npm install -g allure-commandline --save-dev
 
@@ -63,22 +62,16 @@ jobs:
       - name: List target directory
         run: ls -R target/
 
-
-
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: target
-
-
+          path: target/
 
       - name: Generate Allure Report
         run: |
           mkdir -p allure-report
           allure generate allure-results -o allure-report --clean
-
-
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
@@ -86,6 +79,12 @@ jobs:
           name: allure-report
           path: allure-report
 
+      - name: Upload Screenshots (if available)
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: target/screenshots/
+        continue-on-error: true
 
   deploy:
     runs-on: ubuntu-latest
@@ -103,4 +102,3 @@ jobs:
 
       - name: Deploy application
         run: echo "Deploying application."
-
