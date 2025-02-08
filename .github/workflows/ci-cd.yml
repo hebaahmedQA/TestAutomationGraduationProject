@@ -46,6 +46,11 @@ jobs:
           distribution: 'temurin'
           java-version: '22'
 
+      - name: Install Allure
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
       - name: Run tests
         run: mvn test
 
@@ -59,7 +64,7 @@ jobs:
           path: target/surefire-reports/
 
       - name: Check Allure Results
-        run: ls -la allure-results
+        run: ls -la target/allure-results
 
       - name: Generate Allure Report
         run: |
