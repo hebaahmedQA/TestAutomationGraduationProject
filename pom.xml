@@ -95,9 +95,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>  <!-- جربي 3.10.1 بدل 3.13.0 -->
+                <version>3.13.0</version> <!-- أحدث إصدار بيدعم Java 22 -->
                 <configuration>
-                    <release>22</release>
+                    <source>22</source>
+                    <target>22</target>
                 </configuration>
             </plugin>
         </plugins>
