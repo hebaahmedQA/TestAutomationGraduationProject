@@ -47,3 +47,8 @@ TestAutomationProject/
 │-- README.md                 # Project documentation
 ```
 
+project video running with TestNG.xml
+https://drive.google.com/file/d/1WAPN-Ho9mWpGHVGVd3f6Qr4ZtnZe1GcJ/view?usp=sharing
+
+project video with testcases runs individual
+https://drive.google.com/file/d/1IAXjg2kSFcLbY5Gh0NBHW7eXWpnxi41r/view?usp=sharing

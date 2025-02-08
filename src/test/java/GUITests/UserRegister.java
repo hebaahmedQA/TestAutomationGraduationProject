@@ -79,13 +79,13 @@ public class UserRegister {
         accountCreatedPage
                 .verifyAccountCreated()
                 .clickContinueButton();
-       /* homePage
-                .clickDeleteButton();*/
+     homePage
+                .clickDeleteButton();
 
-       /* deleteAccountPage
+       deleteAccountPage
                 .verifyAccountDeleted()
                 .clickContinueButton()
-        ;*/
+        ;
     }
 
     @AfterMethod

@@ -50,6 +50,7 @@ jobs:
         with:
           node-version: '20'
 
+
       - name: Install Allure
         run: npm install -g allure-commandline --save-dev
 
@@ -61,6 +62,8 @@ jobs:
 
       - name: List target directory
         run: ls -R target/
+
+
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
