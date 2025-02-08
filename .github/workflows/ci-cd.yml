@@ -48,6 +48,9 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      - name: List target directory
+        run: ls -R target/
+
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
