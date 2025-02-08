@@ -79,15 +79,6 @@ jobs:
           name: allure-report
           path: allure-report
 
-      - name: Debug - List Screenshots
-        run: ls -R screenshots/ || echo "No screenshots found"
-
-      - name: Upload Screenshots
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshots
-          path: target/screenshots
-          if-no-files-found: warn
 
   deploy:
     runs-on: ubuntu-latest
