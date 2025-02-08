@@ -80,6 +80,12 @@ jobs:
         with:
           name: allure-report
           path: allure-report
+                  - name: Upload Screenshots
+                  uses: actions/upload-artifact@v3
+                  with:
+                    name: screenshots
+                    path: screenshots
+
 
   deploy:
     runs-on: ubuntu-latest

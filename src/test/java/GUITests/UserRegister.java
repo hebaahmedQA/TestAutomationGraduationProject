@@ -1,6 +1,7 @@
 package GUITests;
 import Pages.*;
 import Utils.DriverManager;
+import Utils.Screenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -89,6 +90,7 @@ public class UserRegister {
 
     @AfterMethod
     public void tearDown() {
+        Screenshot.takeScreenshot(driver, "RegisterUser");
 
             driver.quit();
         }

@@ -14,6 +14,7 @@ import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.ConfigReader;
 import Utils.DriverManager;
+import Utils.Screenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -34,7 +35,7 @@ public class UserLogout {
     }
 
 
-    @Test(dependsOnMethods = "GUITests.UserRegister.testAutomationRegisterUser")
+    @Test
     public void userLogOut ( )
     {
         homePage = new HomePage(driver);
@@ -42,8 +43,8 @@ public class UserLogout {
         homePage.verifyHomePageVisibility() //verify home page visibility
                 .clicksignupButton(); // Click the 'Signup / Login' button
 
-       loginPage.loginTextVisibility() //Verify 'Login to your account' is visible
-               .loginWithValidData(); //Login in with valid data
+        loginPage.loginTextVisibility() //Verify 'Login to your account' is visible
+                .loginWithValidData(); //Login in with valid data
         homePage.verifyLoggedAsText("Heba")  // Verify that 'Logged in as username' is visible
                 .logOut();
         loginPage.verifyUserNavigateToLoginPage(); //Verify that user is navigated to login page*/
@@ -59,9 +60,10 @@ public class UserLogout {
     }
     @AfterMethod
     public void tearDown() {
+        Screenshot.takeScreenshot(driver ,"logout");
 
-            driver.quit();
-        }
-
-
+        driver.quit();
     }
+
+
+}

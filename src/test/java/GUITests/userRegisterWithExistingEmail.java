@@ -5,6 +5,7 @@ import Pages.LoginPage;
 import Utils.ConfigReader;
 import Utils.DriverManager;
 import Utils.JsonDataProvider;
+import Utils.Screenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -66,6 +67,7 @@ public class userRegisterWithExistingEmail {
 
     @AfterMethod
     public void tearDown() {
+        Screenshot.takeScreenshot(driver ,"userRegisterWithExistingEmail");
 
         driver.quit();
     }

@@ -36,7 +36,7 @@ public class LoginPage {
     }
 
     public LoginPage loginWithValidData() {
-        driver.findElement(loginEmail).sendKeys(EmailGenerator.stDynamicEmail); // Use dynamic email
+        driver.findElement(loginEmail).sendKeys("test.heba1986@gmail.com"); // Use dynamic email
         driver.findElement(loginPassword).sendKeys("123456");
         driver.findElement(loginButton).click();
         return this;
