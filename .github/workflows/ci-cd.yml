@@ -1,106 +1,56 @@
-name: CI/CD Pipeline
+name: Maven CI/CD
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      # 2. Set up JDK
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v3
         with:
+          java-version: 11
           distribution: 'temurin'
-          java-version: '22'
 
-      - name: Build project
-        run: mvn clean package
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      # 3. Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
         with:
-          name: build-artifacts
-          path: target/*.jar
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
+      # 4. Build and Test the project
+      - name: Build and Test with Maven
+        run: mvn clean install
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '22'
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Allure
-        run: npm install -g allure-commandline --save-dev
-
-      - name: Verify Allure Installation
-        run: allure --version
-
-      - name: Run tests
-        run: mvn test
-
-      - name: List target directory
-        run: ls -R target/
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: target
-
-
-
+      # 5. Generate Allure Report
       - name: Generate Allure Report
-        run: |
-          mkdir -p allure-report
-          allure generate allure-results -o allure-report --clean
+        run: mvn allure:report
 
+      # 6. Upload Allure Report
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: allure-report
-          path: allure-report
-                  - name: Upload Screenshots
-                  uses: actions/upload-artifact@v3
-                  with:
-                    name: screenshots
-                    path: screenshots
+          path: target/site/allure-maven-plugin
 
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up JDK
-        uses: actions/setup-java@v4
+      # 7. Upload Screenshots
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v3
         with:
-          distribution: 'temurin'
-          java-version: '22'
-
-      - name: Deploy application
-        run: echo "Deploying application."
-
+          name: screenshots
+          path: target/screenshots/
