@@ -68,13 +68,12 @@ jobs:
           name: test-results
           path: target/surefire-reports/
 
-      - name: Check Allure Results
-        run: ls -la target/allure-results
+
 
       - name: Generate Allure Report
         run: |
           mkdir -p allure-report
-          allure generate target/allure-results -o allure-report --clean
+          allure generate allure-results -o allure-report --clean
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
