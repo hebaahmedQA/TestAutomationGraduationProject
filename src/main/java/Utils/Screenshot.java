@@ -9,11 +9,21 @@ import java.io.File;
 public class Screenshot {
     public static void takeScreenshot(WebDriver driver, String testName) {
         try {
+
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File("screenshots/" + testName + ".png"));
+
+
+            File destination = new File("target/screenshots/" + testName + ".png");
+
+
+            FileUtils.copyFile(screenshot, destination);
+
+
+            System.out.println("Screenshot saved at: " + destination.getAbsolutePath());
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // اطبع أي خطأ لو حصل
         }
     }
+
 }
 

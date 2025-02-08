@@ -86,7 +86,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: screenshots
-          path: screenshots/
+          path: target/screenshots
           if-no-files-found: warn
 
   deploy:
