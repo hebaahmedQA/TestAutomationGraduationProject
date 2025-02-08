@@ -95,13 +95,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.10.1</version>  <!-- جربي 3.10.1 بدل 3.13.0 -->
                 <configuration>
-                    <source>22</source>
-                    <target>22</target>
+                    <release>22</release>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
