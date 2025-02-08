@@ -83,7 +83,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: screenshots
-          path: screenshots
+          path: C:\c\TestAutomationGraduationProject\screenshots
         continue-on-error: true
 
   deploy:
