@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test Suite">
+    <test name="API Tests">
+        <classes>
+            <class name="ApiTests.UserInvalidLogin"/>
+            <class name="ApiTests.UserRegisterAPI"/>
+            <class name="ApiTests.userValidLogin"/>
+        </classes>
+    </test>
+
     <test name="GUI Tests">
         <classes>
+            <class name="GUITests.userRegisterWithExistingEmail"/>
             <class name="GUITests.UserRegister"/>
-            <class name="GUITests.UserLogout">
-                <methods>
-                    <include name="userLogOut" depends-on-methods="testAutomationRegisterUser"/>
-                </methods>
-                <methods>
-                    <include name = "UserRegisterAPI"  />
-                </methods>
-            </class>
+            <class name="GUITests.UserLogout"/>
         </classes>
     </test>
     <listeners>

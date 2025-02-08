@@ -35,22 +35,22 @@ public class JsonDataProvider {
 
     @DataProvider(name = "registerData")
     public Object[][] getRegisterData() throws IOException {
-        return getDataFromFile("src/main/java/Utils/RegisterData.json");
+        return getDataFromFile("src/main/resources/data/RegisterData.json");
     }
 
     @DataProvider(name = "loginData")
     public Object[][] getLoginData() throws IOException {
-        return getDataFromFile("src/main/java/Utils/LoginData.json");
+        return getDataFromFile("src/main/resources/data/LoginData.json");
     }
 
     @DataProvider(name = "SignUpData")
     public Object[][] getInvalidSignUpData() throws IOException {
-        return getDataFromFile("src/main/java/Utils/ExistingData.json");
+        return getDataFromFile("src/main/resources/data/ExistingData.json");
     }
 
     @DataProvider(name = "userRegisterApi")
     public Object[][] getUserRegisterApi() throws IOException {
-        return getDataFromFile("src/main/java/Utils/UserRegisterAPI.json");
+        return getDataFromFile("src/main/resources/data/UserRegisterAPI.json");
     }
 }
 

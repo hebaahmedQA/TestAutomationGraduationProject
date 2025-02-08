@@ -32,7 +32,7 @@ public class UserLogout {
     }
 
 
-    @Test()
+    @Test(dependsOnMethods = "GUITests.UserRegister.testAutomationRegisterUser")
     public void userLogOut ( )
     {
         homePage = new HomePage(driver);

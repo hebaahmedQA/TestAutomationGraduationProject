@@ -5,6 +5,7 @@ import Pages.LoginPage;
 import Utils.ConfigReader;
 import Utils.JsonDataProvider;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -28,7 +29,7 @@ public class userRegisterWithExistingEmail {
     LoginPage loginPage ;
     @BeforeMethod
     public void setup() {
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
     }

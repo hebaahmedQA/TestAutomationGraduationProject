@@ -16,7 +16,7 @@ public class UserInvalidLogin {
     String inValidEmail = "testheba1rr8@gmail.com";
     String inValidPassword = "12345ff6";
 
-    // Send POST request to verify login ىىى
+    // Send POST request to verify login
 
     given()
 
