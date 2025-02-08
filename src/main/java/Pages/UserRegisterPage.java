@@ -20,10 +20,10 @@ import static org.testng.AssertJUnit.assertEquals;
 12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
 13. Click 'Create Account button'
 14. Verify that 'ACCOUNT CREATED!' is visible
-15. Click 'Continue' button
+15. Click 'Contلinue' button
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
-18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button     */
+18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button        */
 
 public class UserRegisterPage {
     private WebDriver driver;
