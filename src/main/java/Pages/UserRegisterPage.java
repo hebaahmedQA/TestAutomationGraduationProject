@@ -23,7 +23,7 @@ import static org.testng.AssertJUnit.assertEquals;
 15. Click 'Continue' button
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
-18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button*/
+18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button     */
 
 public class UserRegisterPage {
     private WebDriver driver;
