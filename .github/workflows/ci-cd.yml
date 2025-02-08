@@ -1,4 +1,3 @@
-
 name: CI/CD Pipeline
 
 on:
@@ -46,10 +45,16 @@ jobs:
           distribution: 'temurin'
           java-version: '22'
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Install Allure
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y allure
+        run: npm install -g allure-commandline --save-dev
+
+      - name: Verify Allure Installation
+        run: allure --version
 
       - name: Run tests
         run: mvn test
@@ -61,15 +66,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: surefire-reports/
+          path: target/surefire-reports/
 
       - name: Check Allure Results
-        run: ls -la allure-results
+        run: ls -la target/allure-results
 
       - name: Generate Allure Report
         run: |
           mkdir -p allure-report
-          allure generate allure-results -o allure-report --clean
+          allure generate target/allure-results -o allure-report --clean
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
@@ -93,3 +98,4 @@ jobs:
 
       - name: Deploy application
         run: echo "Deploying application."
+
