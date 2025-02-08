@@ -33,16 +33,22 @@ The project automates the following test cases:
 ```
 TestAutomationProject/
 │-- src/main/java/
+├── .github          #workflows
+     ├── maven-ci.yml          # CI/CD pipeline configuration
+├── allure-results/       # Allure report results
 │   ├── pages/                # Page Object Model classes
 │   ├── utils/                # Utility classes
+    ├── testng.xml            # TestNG configuration
 │-- src/test/java/
 │   ├── tests/                # Test scripts
-│   ├── data/                 # Test data files
+
 │-- src/test/resources/
-│   ├── testng.xml            # TestNG configuration
-│   ├── allure-results/       # Allure report results
-│-- .github/workflows/
-│   ├── maven-ci.yml          # CI/CD pipeline configuration
+│   ├── data/                 # Test data files
+    ├──[config.properties]
+│  
+│   
+
+│   
 │-- pom.xml                   # Project dependencies & build configuration
 │-- README.md                 # Project documentation
 ```
