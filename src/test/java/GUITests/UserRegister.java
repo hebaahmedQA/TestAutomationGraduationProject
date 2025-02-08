@@ -1,5 +1,6 @@
 package GUITests;
 import Pages.*;
+import Utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -41,19 +42,14 @@ public class UserRegister {
 
     @BeforeMethod
     public void setup() {
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
 
 
     }
     @Test(dataProvider = "registerData", dataProviderClass = Utils.JsonDataProvider.class)
-    /*public void testAutomationRegisterUser(
-           String password, String title,
-            String birth_date, String birth_month, String birth_year,
-            String firstname, String lastname, String company, String address1,
-            String address2, String country, String zipcode, String state,
-            String city, String mobile_number) */
+
     public void testAutomationRegisterUser(String name, String title, String password, String birth_date, String birth_month, String birth_year, String firstname, String lastname, String company, String address1, String address2, String country, String zipcode, String state, String city, String mobile_number )
     {
 

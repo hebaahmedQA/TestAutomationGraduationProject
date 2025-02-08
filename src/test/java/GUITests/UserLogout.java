@@ -13,6 +13,7 @@ package GUITests;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.ConfigReader;
+import Utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -24,9 +25,10 @@ public class UserLogout {
     private HomePage homePage;
     private LoginPage loginPage;
 
+
     @BeforeMethod
     public void setup() {
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
     }
