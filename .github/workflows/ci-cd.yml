@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version:   '22'
+          java-version: '22'
 
       - name: Build project
         run: mvn clean package
@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '22' #統一 الإصدار مع build
 
       - name: Run tests
         run: mvn test
@@ -69,4 +69,4 @@ jobs:
           java-version: '22'
 
       - name: Deploy application
-        run: echo "Deploying application..."
+        run: echo "Deploying application."
