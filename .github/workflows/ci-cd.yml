@@ -59,7 +59,7 @@ jobs:
           path: target/surefire-reports/
 
       - name: Check Allure Results
-        run: ls -la target/allure-results
+        run: ls -la allure-results
 
       - name: Generate Allure Report
         run: |
