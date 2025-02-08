@@ -21,7 +21,7 @@ public class HomePage {
 
 
 
-    //Methods "Actions"
+    //Methods "Actions" ز
     public HomePage clicksignupButton ()
     {
         driver.findElement(signupButton).click();
