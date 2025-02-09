@@ -15,7 +15,7 @@ The project automates the following test cases:
  3. Automation Framework Design
 ### **Structure:**
 - **Test Scripts**: Implemented using the Page Object Model (POM) for GUI automation.
-- **Test Data**: Uses external files (CSV, JSON, or Excel) for data-driven testing.
+- **Test Data**: Uses external files ( JSON) for data-driven testing.
 - **Configurations**: Stores URLs, environment details, and browser settings.
 - **Reporting**: Generates reports using Allure.
 - **Parallel Execution**: Supports parallel test execution for efficiency.
