@@ -58,10 +58,10 @@ jobs:
         run: allure --version
 
       - name: Run tests
-        run: mvn test || true  # منع GitHub Actions من إيقاف التنفيذ لو التستات فشلت
+        run: mvn test || true  # يكمل التنفيذ حتى لو فشلت الاختبارات
 
-      - name: List target directory
-        run: ls -R target/
+      - name: Debug - List screenshots
+        run: ls -R target/screenshots/ || echo "No screenshots found"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -70,7 +70,7 @@ jobs:
           path: target/
 
       - name: Upload Screenshots
-        if: always()  # رفع السكرين شوت سواء التستات نجحت أو فشلت
+        if: always()  # يرفع السكرين شوتس حتى لو التستات فشلت
         uses: actions/upload-artifact@v4
         with:
           name: test-screenshots
