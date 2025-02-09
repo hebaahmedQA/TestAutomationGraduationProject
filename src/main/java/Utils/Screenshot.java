@@ -16,12 +16,12 @@ public class Screenshot {
             File destination = new File("target/screenshots/" + testName + ".png");
 
 
-            FileUtils.copyFile(screenshot, destination);
+            //FileUtils.copyFile(screenshot, destination);
 
 
-            System.out.println("Screenshot saved at: " + destination.getAbsolutePath());
+
         } catch (Exception e) {
-            e.printStackTrace(); // اطبع أي خطأ لو حصل
+            e.printStackTrace();
         }
     }
 
