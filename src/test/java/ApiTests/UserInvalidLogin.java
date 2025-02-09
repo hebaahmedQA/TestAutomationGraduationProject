@@ -7,21 +7,17 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class UserInvalidLogin {
-    @Test
-    public void invalidLogin () {
+    @Test(dataProvider = "invlaligLoginData", dataProviderClass = Utils.JsonDataProvider.class)
+    public void invalidLogin (String email, String pass) {
 
     RestAssured.baseURI = ConfigReader.getProperty("baseURL");
-
-    // Test data: valid email and password
-    String inValidEmail = "testheba1rr8@gmail.com";
-    String inValidPassword = "12345";
 
     // Send POST request to verify login user hh
 
     given()
 
-                .formParam("email", inValidEmail )
-                .formParam("password", inValidPassword)
+                .formParam("email", email )
+                .formParam("password", pass)
                 .when()
                 .post("/api/verifyLogin")
                 .then()

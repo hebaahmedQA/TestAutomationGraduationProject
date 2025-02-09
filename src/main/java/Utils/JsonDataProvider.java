@@ -52,7 +52,23 @@ public class JsonDataProvider {
     public Object[][] getUserRegisterApi() throws IOException {
         return getDataFromFile("src/main/resources/data/UserRegisterAPI.json");
     }
+
+    @DataProvider(name = "invlaligLoginData")
+    public Object[][] getInvalidLoginDataApi() throws IOException {
+        return getDataFromFile("src/main/resources/data/InvalidLoginDataAPI.json");
+
+    }
+
+    @DataProvider(name = "logoutData")
+    public Object[][] getLogoutData() throws  IOException  {
+        return getDataFromFile("src/main/resources/data/LogoutData.json");
+
+
+
+    }
 }
+
+
 
 
 

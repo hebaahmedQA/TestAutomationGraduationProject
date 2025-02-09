@@ -58,10 +58,8 @@ jobs:
         run: allure --version
 
       - name: Run tests
-        run: mvn test || true  # يكمل التنفيذ حتى لو فشلت الاختبارات
+        run: mvn test
 
-      - name: Debug - List screenshots
-        run: ls -R target/screenshots/ || echo "No screenshots found"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -70,11 +68,10 @@ jobs:
           path: target/
 
       - name: Upload Screenshots
-        if: always()  # يرفع السكرين شوتس حتى لو التستات فشلت
         uses: actions/upload-artifact@v4
         with:
           name: test-screenshots
-          path: "**/*.png"
+          path: screenshot/
 
       - name: Generate Allure Report
         run: |
