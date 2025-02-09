@@ -15,8 +15,7 @@ public class Screenshot {
 
             File destination = new File("target/screenshots/" + testName + ".png");
 
-
-            //FileUtils.copyFile(screenshot, destination);
+            FileUtils.copyFile(screenshot, destination);
 
 
 
