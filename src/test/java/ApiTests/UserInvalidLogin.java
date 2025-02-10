@@ -12,7 +12,7 @@ public class UserInvalidLogin {
 
     RestAssured.baseURI = ConfigReader.getProperty("baseURL");
 
-    // Send POST request to verify login user hh
+    // Send POST request to verify login user
 
     given()
 
@@ -22,7 +22,7 @@ public class UserInvalidLogin {
                 .post("/api/verifyLogin")
                 .then()
                 .statusCode(404) // Assert response code is 404
-                .body(equalTo("{\"responseCode\": 200, \"message\": \"User exists!\"}"));
+                .body(equalTo("{\"responseCode\": 404, \"message\": \"User not found!\"}"));
 
 
 

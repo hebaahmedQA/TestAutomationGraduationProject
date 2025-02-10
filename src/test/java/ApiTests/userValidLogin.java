@@ -5,6 +5,7 @@ package ApiTests;
 import Utils.ConfigReader;
 import Utils.JsonDataProvider;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -15,17 +16,27 @@ public class userValidLogin {
 
 
         RestAssured.baseURI = ConfigReader.getProperty("baseURL");
+
+
         // Send POST request to verify login
 
-        given()
+          given()
 
                 .formParam("email", email)
                 .formParam("password", password)
                 .when()
                 .post("/api/verifyLogin")
                 .then()
-                .statusCode(200) // Assert response code is 200
-                .body(equalTo("{\"responseCode\": 200, \"message\": \"User exists!\"}"));
+                .statusCode(200)
+                  .log().all()
+                  //.statusCode(200)
+                  // .body("responseCode", equalTo(200))
+                  //.body("message", equalTo("User exists!"));
+                  // .body("responseCode", equalTo(200))
+                  //.body("message", equalTo("User exists!"));
+                  //.statusCode(200)
+                  // .statusCode(200).body(equalTo("User exists!"));// Assert response code is 20.body("message", equalTo("User exists!"));
+                  .body(equalTo("{\"responseCode\": 200, \"message\": \"User exists!\"}"));
 
 
 

@@ -43,7 +43,7 @@ public class UserRegister {
 
     @BeforeMethod
     public void setup() {
-        driver = DriverManager.getDriver();
+        driver = DriverManager.getDriver("chrome");
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
 

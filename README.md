@@ -33,7 +33,7 @@ The project automates the following test cases:
 ```
 TestAutomationProject/
 │-- src/main/java/
-├── .github          #workflows
+├── .github              #workflows
      ├── maven-ci.yml          # CI/CD pipeline configuration
 ├── allure-results/       # Allure report results
 │   ├── pages/                # Page Object Model classes

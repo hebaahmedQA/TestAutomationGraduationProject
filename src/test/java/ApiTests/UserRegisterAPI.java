@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class UserRegisterAPI {
 
@@ -23,10 +24,10 @@ public class UserRegisterAPI {
 
       // Create request body using HashMap
       Map<String, String> requestBody = new HashMap<>();
-      requestBody.put("title", title);
       requestBody.put("name", name);
       requestBody.put("email", email);
       requestBody.put("password", password);
+      requestBody.put("title", title);
       requestBody.put("birth_date", birth_date);
       requestBody.put("birth_month", birth_month);
       requestBody.put("birth_year", birth_year);
@@ -49,6 +50,7 @@ public class UserRegisterAPI {
               .post("/api/createAccount")
               .then()
               .log().all()
-              .statusCode(201); // Verify status code 201
+              .statusCode(201)// Verify status code 201
+              .body(equalTo("User created!"));
    }
 }
