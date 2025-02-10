@@ -16,7 +16,7 @@ import java.util.Map;
 public class JsonDataProvider {
 
     private Object[][] getDataFromFile(String filePath) throws IOException {
-        //  use objectmapper to read jsondata
+        //  use object mapper to read json data
         ObjectMapper objectMapper = new ObjectMapper();
 
         // Read the JSON file into a List of Maps
@@ -32,7 +32,7 @@ public class JsonDataProvider {
 
         return testData;
     }
-
+//methods to get data from json data file
     @DataProvider(name = "registerData")
     public Object[][] getRegisterData() throws IOException {
         return getDataFromFile("src/main/resources/data/RegisterData.json");

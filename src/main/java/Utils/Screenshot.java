@@ -10,8 +10,9 @@ public class Screenshot {
     public static void takeScreenshot(WebDriver driver, String testName) {
         try {
 
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            //Take screenshot and store it and copy the screenshot file to the specified destination
 
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
             File destination = new File("target/screenshots/" + testName + ".png");
 
