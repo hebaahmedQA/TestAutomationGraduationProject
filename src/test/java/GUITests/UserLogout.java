@@ -29,14 +29,14 @@ public class UserLogout {
 
     @BeforeMethod
     public void setup() {
-        driver = DriverManager.getDriver();
+        driver = DriverManager.getDriver("chrome");
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
     }
 
 
-    @Test
-    public void userLogOut ( )
+    @Test (dataProvider = "logoutData", dataProviderClass = Utils.JsonDataProvider.class)
+    public void userLogOut ( String mail , String password)
     {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
@@ -44,7 +44,7 @@ public class UserLogout {
                 .clicksignupButton(); // Click the 'Signup / Login' button
 
         loginPage.loginTextVisibility() //Verify 'Login to your account' is visible
-                .loginWithValidData("test.heba1986@gmail.com", "123456"); //Login in with valid data
+                .loginWithValidData(mail,password); //Login in with valid data
         homePage.verifyLoggedAsText("Heba")  // Verify that 'Logged in as username' is visible
                 .logOut();
         loginPage.verifyUserNavigateToLoginPage(); //Verify that user is navigated to login page*/

@@ -8,6 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+
+/*
+API 11: POST To Create/Register User Account
+API URL: https://automationexercise.com/api/createAccount
+Request Method: POST
+Request Parameters: name, email, password, title (for example: Mr, Mrs, Miss), birth_date, birth_month, birth_year, firstname, lastname, company, address1, address2, country, zipcode, state, city, mobile_number
+Response Code: 201
+Response Message: User created!
+*/
+
 
 public class UserRegisterAPI {
 
@@ -23,10 +34,10 @@ public class UserRegisterAPI {
 
       // Create request body using HashMap
       Map<String, String> requestBody = new HashMap<>();
-      requestBody.put("title", title);
       requestBody.put("name", name);
       requestBody.put("email", email);
       requestBody.put("password", password);
+      requestBody.put("title", title);
       requestBody.put("birth_date", birth_date);
       requestBody.put("birth_month", birth_month);
       requestBody.put("birth_year", birth_year);
@@ -49,6 +60,7 @@ public class UserRegisterAPI {
               .post("/api/createAccount")
               .then()
               .log().all()
-              .statusCode(201); // Verify status code 201
+              .statusCode(201)// Verify status code 201
+              .body(equalTo("User created!"));
    }
 }

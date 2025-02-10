@@ -31,7 +31,7 @@ public class userRegisterWithExistingEmail {
     LoginPage loginPage ;
     @BeforeMethod
     public void setup() {
-        driver = DriverManager.getDriver();
+        driver = DriverManager.getDriver("chrome");
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
     }
@@ -48,21 +48,6 @@ public class userRegisterWithExistingEmail {
          loginPage.verifyNewUserText()
                  .signUpWithExistingEmail(name, email)
                  .verifyAlreadyEmailErrorMessage();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
      }
 
     @AfterMethod
