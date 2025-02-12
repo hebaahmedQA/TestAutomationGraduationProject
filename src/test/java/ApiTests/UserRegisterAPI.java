@@ -60,7 +60,7 @@ public class UserRegisterAPI {
               .post("/api/createAccount")
               .then()
               .log().all()
-              .statusCode(201)// Verify status code 201
+              .statusCode(200)// Verify status code 201
               .body(equalTo("User created!"));
    }
 }

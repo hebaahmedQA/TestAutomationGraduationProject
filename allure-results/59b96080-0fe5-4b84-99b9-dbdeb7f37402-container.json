@@ -1,1 +1,0 @@
-{"uuid":"59b96080-0fe5-4b84-99b9-dbdeb7f37402","name":"GUITests.UserRegister.setup","children":["a9ad38d3-6332-462b-b36c-45be98d528b5"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1737749680266,"stop":1737749703918}],"afters":[],"start":1737749680264,"stop":1737749703920}
