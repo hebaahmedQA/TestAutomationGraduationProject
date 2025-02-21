@@ -16,14 +16,14 @@ import java.util.Map;
 public class JsonDataProvider {
 
     private Object[][] getDataFromFile(String filePath) throws IOException {
-        //  use object mapper to read json data
+
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // Read the JSON file into a List of Maps
+
         List<Map<String, Object>>
                 data = objectMapper.readValue(new File(filePath), List.class);
 
-        // Convert the List of Maps into a [][] Object array
+
         Object[][] testData = new Object[data.size()][];
 
         for (int i = 0; i < data.size(); i++) {
@@ -32,7 +32,7 @@ public class JsonDataProvider {
 
         return testData;
     }
-//methods to get data from json data file
+
     @DataProvider(name = "registerData")
     public Object[][] getRegisterData() throws IOException {
         return getDataFromFile("src/main/resources/data/RegisterData.json");

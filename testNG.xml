@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Test Suite" parallel="methods" thread-count="3">
+<suite name="Test Suite" parallel="tests" thread-count="3">
 
     <test name="API Tests">
         <classes>

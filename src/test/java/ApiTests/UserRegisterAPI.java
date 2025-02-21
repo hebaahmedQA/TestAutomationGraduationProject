@@ -10,14 +10,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-/*
-API 11: POST To Create/Register User Account
-API URL: https://automationexercise.com/api/createAccount
-Request Method: POST
-Request Parameters: name, email, password, title (for example: Mr, Mrs, Miss), birth_date, birth_month, birth_year, firstname, lastname, company, address1, address2, country, zipcode, state, city, mobile_number
-Response Code: 201
-Response Message: User created!
-*/
+
 
 
 public class UserRegisterAPI {
@@ -29,10 +22,10 @@ public class UserRegisterAPI {
                             String address1, String address2, String country,
                             String state, String city, String zipcode, String mobile_number) {
 
-      // Get Base URL from config file
+
       RestAssured.baseURI = ConfigReader.getProperty("baseURL");
 
-      // Create request body using HashMap
+
       Map<String, String> requestBody = new HashMap<>();
       requestBody.put("name", name);
       requestBody.put("email", email);
@@ -52,7 +45,7 @@ public class UserRegisterAPI {
       requestBody.put("zipcode", zipcode);
       requestBody.put("mobile_number", mobile_number);
 
-      // Send POST request
+
       given()
               .contentType("application/json")
               .body(requestBody)
@@ -60,7 +53,7 @@ public class UserRegisterAPI {
               .post("/api/createAccount")
               .then()
               .log().all()
-              .statusCode(200)// Verify status code 201
+              .statusCode(200)
               .body(equalTo("User created!"));
    }
 }

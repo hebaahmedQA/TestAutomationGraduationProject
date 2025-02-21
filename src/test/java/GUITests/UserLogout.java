@@ -1,20 +1,12 @@
 package GUITests;
-/*1. Launch browser
-2. Navigate to url 'http://automationexercise.com'
-3. Verify that home page is visible successfully
-4. Click on 'Signup / Login' button
-5. Verify 'Login to your account' is visible
-6. Enter correct email address and password
-7. Click 'login' button
-8. Verify that 'Logged in as username' is visible
-9. Click 'Logout' button
-10. Verify that user is navigated to login page*/
+
 
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.ConfigReader;
-import Utils.DriverManager;
+import Utils.DriverFactory;
 import Utils.Screenshot;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,8 +19,9 @@ public class UserLogout {
 
 
     @BeforeMethod
+    @Step
     public void setup() {
-        driver = DriverManager.getDriver("chrome");
+        driver = DriverFactory.getDriver("chrome");
         driver.get(ConfigReader.getProperty("baseURL"));
         driver.manage().window().maximize();
     }
@@ -39,14 +32,14 @@ public class UserLogout {
     {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
-        homePage.verifyHomePageVisibility() //verify home page visibility
-                .clicksignupButton(); // Click the 'Signup / Login' button
+        homePage.verifyHomePageVisibility()
+                .clicksignupButton();
 
-        loginPage.loginTextVisibility() //Verify 'Login to your account' is visible
-                .loginWithValidData(mail,password); //Login in with valid data
-        homePage.verifyLoggedAsText("Heba")  // Verify that 'Logged in as username' is visible
+        loginPage.loginTextVisibility()
+                .loginWithValidData(mail,password);
+        homePage.verifyLoggedAsText("Heba")
                 .logOut();
-        loginPage.verifyUserNavigateToLoginPage(); //Verify that user is navigated to login page*/
+        loginPage.verifyUserNavigateToLoginPage();
 
 
 
