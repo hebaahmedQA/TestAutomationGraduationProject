@@ -16,15 +16,10 @@ public class userValidLogin {
     @Test(dataProvider = "loginData", dataProviderClass = Utils.JsonDataProvider.class)
     public  void userValidLogin(String email, String password) {
 
-
+//
         RestAssured.baseURI = ConfigReader.getProperty("baseURL");
 
-
-
-
-
-
-          given()
+        given()
 
                   .formParam("email", email)
                   .formParam("password", password)
