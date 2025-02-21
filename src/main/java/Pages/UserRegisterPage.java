@@ -1,39 +1,23 @@
 package Pages;
 
+import Utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import static org.testng.AssertJUnit.assertEquals;
-/*1. Launch browser
-2. Navigate to url 'http://automationexercise.com'
-3. Verify that home page is visible successfully
-4. Click on 'Signup / Login' button
-5. Verify 'New User Signup!' is visible
-6. Enter name and email address
-7. Click 'Signup' button
-8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
-9. Fill details: Title, Name, Email, Password, Date of birth
-10. Select checkbox 'Sign up for our newsletter!'
-11. Select checkbox 'Receive special offers from our partners!'
-12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
-13. Click 'Create Account button'
-14. Verify that 'ACCOUNT CREATED!' is visible
-15. Click 'Contلinue' button
-16. Verify that 'Logged in as username' is visible
-17. Click 'Delete Account' button
-18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button        */
+
 
 public class UserRegisterPage {
     private WebDriver driver;
 
-    // Constructor
+
     public UserRegisterPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    // Locators
+
     By genderField = By.id("id_gender1");
     By passwordField = By.id("password");
     By dayDropDown = By.id("days");
@@ -49,7 +33,7 @@ public class UserRegisterPage {
     By cityField = By.id("city");
     By zipcodeField = By.id("zipcode");
     By mobileNumberField = By.id("mobile_number");
-    By continueButton = By.xpath("//button[@type = 'submit']");
+    By createButton = By.cssSelector("button[data-qa='create-account']");
     By newsletterCheckbox = By.id("newsletter");
     By offersCheckbox = By.id("optin");
     By enterAccountInfo = By.xpath("//b[text() ='Enter Account Information']");
@@ -57,7 +41,7 @@ public class UserRegisterPage {
 
 
 
-    // Actions
+
     public UserRegisterPage userRegister(
            String title, String password,
             String birth_date, String birth_month, String birth_year,
@@ -83,7 +67,7 @@ public class UserRegisterPage {
         driver.findElement(zipcodeField).sendKeys(zipcode);
         driver.findElement(mobileNumberField).sendKeys(mobile_number);
 
-        driver.findElement(continueButton).click();
+        driver.findElement(createButton).click();
         return this;
     }
 
@@ -102,7 +86,7 @@ public class UserRegisterPage {
     }
     public UserRegisterPage ensureAccountInfoVisible() {
 
-        Assert.assertEquals(driver.findElement(enterAccountInfo).getText().toLowerCase(),"enter account information");
+        Assert.assertEquals( ConfigReader.getProperty("account.info.text"),driver.findElement(enterAccountInfo).getText().toLowerCase());
 
         return this ;
 

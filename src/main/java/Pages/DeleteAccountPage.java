@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -12,19 +13,10 @@ public class DeleteAccountPage {
          this.driver = driver;
     }
 
+    private By continueButton =By.cssSelector("[data-qa='continue-button']");
 
-    private By accountDeletedButton  = By.xpath("//a[@ href = '/delete_account']");
-    private By continueButton = By.xpath("//a[@data-qa ='continue-button']");
-    private By accountDeletedText = By.xpath("//h2 [@data-qa = 'account-deleted']");
-
-
-
-    public DeleteAccountPage clickDeleteAccountButton ()
-
-    {
-        driver.findElement(accountDeletedButton).click();
-        return this;
-    }
+    private By accountDeletedText = By.xpath("//b[text()='Account Deleted!']")
+;
 
     public DeleteAccountPage clickContinueButton ()
     {
@@ -34,7 +26,7 @@ public class DeleteAccountPage {
 
   public DeleteAccountPage verifyAccountDeleted ()
     {
-        Assert.assertEquals(driver.findElement(accountDeletedText).getText(), "ACCOUNT DELETED!");
+        Assert.assertEquals(driver.findElement(accountDeletedText).getText(), ConfigReader.getProperty("account.deleted.message"));
         return this;
     }
 

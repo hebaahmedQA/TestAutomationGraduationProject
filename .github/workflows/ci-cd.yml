@@ -1,3 +1,4 @@
+
 name: CI/CD Pipeline
 
 on:
@@ -59,14 +60,18 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: List target directory
-        run: ls -R target/
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: target/
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-screenshots
+          path: target/screenshots/
 
       - name: Generate Allure Report
         run: |
@@ -78,7 +83,6 @@ jobs:
         with:
           name: allure-report
           path: allure-report
-
 
   deploy:
     runs-on: ubuntu-latest

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite" parallel="tests" thread-count="3">
+
+    <test name="API Tests">
+        <classes>
+            <class name="ApiTests.UserInvalidLogin"/>
+            <class name="ApiTests.UserRegisterAPI"/>
+            <class name="ApiTests.userValidLogin"/>
+        </classes>
+    </test>
+
+    <test name="GUI Tests">
+        <classes>
+            <class name="GUITests.UserRegister"/>
+            <class name="GUITests.UserLogout"/>
+            <class name="GUITests.userRegisterWithExistingEmail"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+</suite>

@@ -33,7 +33,7 @@ The project automates the following test cases:
 ```
 TestAutomationProject/
 │-- src/main/java/
-├── .github          #workflows
+├── .github              #workflows
      ├── maven-ci.yml          # CI/CD pipeline configuration
 ├── allure-results/       # Allure report results
 │   ├── pages/                # Page Object Model classes
@@ -53,8 +53,5 @@ TestAutomationProject/
 │-- README.md                 # Project documentation
 ```
 
-project video running with TestNG.xml
-https://drive.google.com/file/d/1WAPN-Ho9mWpGHVGVd3f6Qr4ZtnZe1GcJ/view?usp=sharing
-
-project video with testcases runs individual
-https://drive.google.com/file/d/1IAXjg2kSFcLbY5Gh0NBHW7eXWpnxi41r/view?usp=sharing
+project video running with TestNG.xml                            
+ https://drive.google.com/file/d/1RNJSlskA2z6inRBhJfdnqrTmPpnAqdZ_/view?usp=sharing
